@@ -4,21 +4,12 @@
 
 typedef void *data_type;
 
-typedef struct Node
-{
-    data_type value;
-    struct Node *next;
-} Node;
+typedef struct Node Node;
 
 Node *node_construct(data_type value, Node *next);
 void node_destroy(Node *n);
 
-typedef struct
-{
-    Node *head;
-    Node *last;
-    int size;
-} ForwardList;
+typedef struct ForwardList ForwardList;
 
 /**
  * @brief Construct a new Linked List:: Linked List object
@@ -135,34 +126,7 @@ void forward_list_clear(ForwardList *l);
  * @param val
  * Value to be removed from the linked list.
  */
-void forward_list_remove(ForwardList *l, data_type val);
-
-/**
- * @brief Removes all duplicate values from the linked list.
- * Removes all duplicate values from the linked list and frees the memory allocated for them.
- * @param l
- * Pointer to the linked list.
- * @note
- * The linked list must be sorted.
- */
-void forward_list_unique(ForwardList *l);
-
-/**
- * @brief Adds all nodes from the given list to the end of the linked list.
- * @param l
- * Pointer to the linked list.
- * @param m
- * Pointer to the linked list to be added to the end of the linked list.
- */
-void forward_list_cat(ForwardList *l, ForwardList *m);
-
-/**
- * @brief Sorts the linked list.
- * Sorts the linked list.
- * @param l
- * Pointer to the linked list.
- */
-void forward_list_sort(ForwardList *l);
+void forward_list_remove(ForwardList *l, data_type val, int (*cmpFn)(data_type, data_type));
 
 /**
  * @brief Destroys the linked list.
