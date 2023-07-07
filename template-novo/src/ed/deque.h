@@ -2,6 +2,7 @@
 #ifndef _DEQUE_H_
 #define _DEQUE_H_
 
+typedef void * data_type;
 typedef struct Deque Deque;
 
 // criacao do deque

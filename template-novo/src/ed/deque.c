@@ -20,6 +20,7 @@ Dode *Dode_construct(data_type value, Dode *prev,Dode *next){
 }
 void Dode_destroy(Dode *n){
     printf("Dode destroy | Valor destruido :%d\n",n->value);
+    
     free(n);
 }
 
@@ -144,12 +145,12 @@ Deque *deque_construct(void){
 }
 
 // funcoes para insercao na direita e esquerda (devem ser feitas em O(1), com eventual realloc)
-void deque_push_back(Deque *d, data_type val){
-    Dorward_list_push_back(d->deque,val);
+void deque_push_back(Deque *d, void * val){
+    Dorward_list_push_back(d->deque,(data_type)val);
 }
-void deque_push_front(Deque *d, data_type val){
+void deque_push_front(Deque *d, void * val){
     printf("Push front | Valor colocado : %d\n",val);
-    Dorward_list_push_front(d->deque,val);
+    Dorward_list_push_front(d->deque,(data_type) val);
 }
 
 
